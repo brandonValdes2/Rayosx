@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulador de Rayos X</title>
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div class="contenedor">
+    <h1> SIMULADOR DE RAYOS X</h1>
+    <div class="formulario">
+    <h2>Datos del paciente</h2>
+    
+    <label>Nombre </label>
+    <input type="text" id="nombre" placeholder="Nombre completo">
+    
+    <label>Edad </label>
+    <input type="number" id="edad" placeholder="Edad">
+    
+    <label for="correo">Correo electrónico:</label>
+    <input type="email" id="correo" name="correo" placeholder="ejemplo@gmail.com">
+    <button type="button" onclick="enviarCorreo()">Enviar reporte por correo</button>
+
+    <label>Sexo </label>
+    <select id="sexo">
+    <option value="">Seleccionar</option>
+    <option value="Masculino">Masculino</option>
+    <option value="Femenino">Femenino</option>
+    </select>
+
+    <label>Tipo de estudio:</label>
+    <select id="estudio">
+    <option value="">Seleccionar</option>
+    <option value="Radiografia de torax">Radiografia de torax</option>
+    <option value="Radiografia de brazo">Radiografia de brazo</option>
+    <option value="Radiografia de pierna">Radiografia de pierna</option>
+    <option value="Radiografia de columna">Radiografia de columna</option>
+    </select>
+    
+    <label>Observaciones:</label>
+    <textarea id="observaciones" placeholder="Escribe las observaciones del estudio"></textarea>
+    <label>Seleccionar radiografia:</label>
+    <input type="file" id="imagen" accept="image/*">
+    </div>
+    
+    <div class="radiografia">
+    <h2>Vista de radiografia</h2>
+    <div class="visor">
+    <img id="imagenPreview" src="" alt="Radiografia">
+    <p id="mensaje">Aqui aparecera la radiografia</p>
+    </div>
+    
+    </div>
+    <div class="controles">
+    <h2>Controles de imagen</h2>
+    <label>Brillo</label>
+    <input type="range" id="brillo" min="50" max="200" value="100">
+    <label>Contraste</label>
+    <input type="range" id="contraste" min="50" max="200" value="100">
+    <button onclick="invertirImagen()"> Invertir imagen</button>
+    <button onclick="restablecerImagen()"> Restablecer</button>
+    </div>
+    
+    <div class="reporte">
+    <h2>Reporte</h2>
+    <button onclick="generarReporte()"> Generar reporte</button>
+    <button onclick="guardarPaciente()"> Guardar paciente</button>
+    <div id="resultado"></div>
+    </div>
+
+    <button onclick="descargarFormato('txt')"> Descargar TXT</button>
+    <button onclick="descargarPDF()"> Descargar PDF</button>
+    
+    <button type="button" onclick="abrirCamara()">Tomar foto</button>
+    <input
+    type="file"
+    id="camara"
+    accept="image/*"
+    capture="environment"
+    style="display: none;">
+
+    <script src="script.js"></script>
+
+</body>
+</html>
